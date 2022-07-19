@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:app1="clr-namespace:App1"
+             x:Class="App1.SampleListView">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="FIle Test Demo Data" HorizontalOptions="CenterAndExpand" FontSize="14" > </Label>
+            <CollectionView ItemsSource="{Binding CustomeFileRoomList}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <app1:FileCardViewControl CardTitle="{Binding FileName}" SetBackgroundImage="{Binding CardBackgroundImage}"></app1:FileCardViewControl>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

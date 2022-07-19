@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:app1="clr-namespace:App1"
+             x:Class="App1.MainPage" x:Name="mainpage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="FrameStyle" TargetType="Frame">
+                <Setter Property="HasShadow" Value="False"/>
+                <Setter Property="BorderColor" Value="{DynamicResource DisabledColor}"/>
+                <Setter Property="CornerRadius" Value="8"/>
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="Margin" Value="0,0,0,10"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+        <StackLayout>
+            <CollectionView ItemsSource="{Binding CustomeFileRoomList}">
+                  <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <app1:FileCardViewControl x:Name="stackcontrol"  FileDownloadMode="{Binding DownloadMode,Mode=TwoWay}"  DownloadButtonCommandParameter="{x:Reference stackcontrol}" DownloadButtonCommand="{Binding Path=BindingContext.DownloadCommand,Source={x:Reference mainpage}}" BackgroundImageVisible="{Binding CardBackgroundImageVisible}" CardTitle="{Binding FileName}" SetBackgroundImage="{Binding CardBackgroundImage}"></app1:FileCardViewControl>
+                    </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                  </CollectionView>                  
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>
